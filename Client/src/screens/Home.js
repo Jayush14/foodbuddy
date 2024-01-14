@@ -104,10 +104,10 @@ export default function Home() {
         </div>
       </div>
       <div className="container">
-        {FoodCat != []
+        {(FoodCat.length != 0 && FoodItem.length != 0)
           ? FoodCat.map((data) => {
               const filteredItems =
-                FoodItem != []
+                FoodItem.length != 0
                   ? FoodItem.filter(
                       (item) =>
                         item.CategoryName === data.CategoryName &&
