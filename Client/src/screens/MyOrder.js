@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar';
 
 export default function MyOrder() {
 
-    const [OrderData, setOrderData] = useState("")
+    const [OrderData, setOrderData] = useState(null)
 
     const fetchMyOrder = async () => {
         console.log(localStorage.getItem('userEmail'))
@@ -46,7 +46,7 @@ export default function MyOrder() {
             <div className='container'>
                 <div className='row'>
 
-                    {OrderData.length != 0 ? Array(OrderData).map(data => {
+                    {OrderData ? Array(OrderData).map(data => {
                         return (
                             data.OrderData ?
                                 data.OrderData.order_data.slice(0).reverse().map((item) => {

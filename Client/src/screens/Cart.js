@@ -6,7 +6,7 @@ export default function Cart() {
   let data = useCart();
   let dispatch = useDispatchCart();
 
-  
+
 
   if (data.length === 0) {
     return (
@@ -58,7 +58,7 @@ export default function Cart() {
             </tr>
           </thead>
           <tbody>
-            {data.map((food, index) => (
+            {data && data.map((food, index) => (
               <tr key={index}>
                 <th scope="row">{index + 1}</th>
                 <td>{food.name}</td>

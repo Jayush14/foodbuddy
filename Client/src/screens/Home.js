@@ -5,8 +5,8 @@ import Card from "../components/Card";
 
 export default function Home() {
   const [search, setSearch] = useState("");
-  const [FoodCat, setFoodCat] = useState([]);
-  const [FoodItem, setFoodItem] = useState([]);
+  const [FoodCat, setFoodCat] = useState(null);
+  const [FoodItem, setFoodItem] = useState(null);
 
   const loadData = async () => {
     let response = await fetch("https://foodbuddy-rust.vercel.app/api/foodData", {
@@ -104,10 +104,10 @@ export default function Home() {
         </div>
       </div>
       <div className="container">
-        {(FoodCat.length != 0 && FoodItem.length != 0)
+        {(FoodCat && FoodItem)
           ? FoodCat.map((data) => {
               const filteredItems =
-                FoodItem.length != 0
+                FoodItem
                   ? FoodItem.filter(
                       (item) =>
                         item.CategoryName === data.CategoryName &&
